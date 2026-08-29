@@ -1,0 +1,20 @@
+baseURL = "https://fumonlemon.github.io/mygarden/"
+title = "My Garden"
+locale = "zh-cn"
+theme = "hugo-bearcub"
+enableRobotsTXT = true
+
+# 语法高亮无内联样式（主题推荐，利于安全与可访问性）
+[markup.highlight]
+  lineNos = true
+  lineNumbersInTable = false
+  noClasses = false
+
+[params]
+  description = "我的数字花园"
+  title = "My Garden"
+  dateFormat = "2006-01-02"
+  hideUntranslated = true
+
+[params.author]
+  name = "FumonLemon"

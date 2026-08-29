@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fumonlemon.github.io/mygarden/sitemap.xml
