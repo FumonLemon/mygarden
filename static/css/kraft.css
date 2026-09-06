@@ -1,0 +1,28 @@
+/* 想象盒子 · kraft 纸盒配色
+   覆盖 hugo-theme-venin 的 CSS 变量(亮/暗两套)
+   字体与布局沿用 venin 主题本体 */
+
+:root {
+  --background-color: #F3E7CE;         /* 纸盒内壁米黄 */
+  --bright-background-color: #FBF3E0;  /* 高亮纸面 */
+  --block-background-color: #ECDCBA;   /* 块/卡片底 */
+  --border-color: #D9C49E;             /* 瓦楞分隔线 */
+  --text-color: #46352A;               /* 深棕正文 */
+  --secondary-text-color: #8A7250;     /* 弱文字 */
+  --link-color: #B45309;               /* 琥珀橙链接 */
+}
+
+.dark {
+  --background-color: #2B231B;         /* 夜间盒内 */
+  --bright-background-color: #3A2F24;
+  --block-background-color: #352B20;
+  --border-color: #5C4B37;
+  --text-color: #E8D8BC;
+  --secondary-text-color: #B39B7A;
+  --link-color: #D98E3F;
+}
+
+/* 深色模式下 logo 不反色(纸盒图本身够亮) */
+.dark img.title-image {
+  filter: none;
+}

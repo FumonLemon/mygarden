@@ -1,0 +1,49 @@
+<!-- Theme Switch -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const themeSelect = document.getElementById('theme-select')
+    if (themeSelect) {
+        themeSelect.value = localStorage.getItem('geedeapro.theme')
+        themeSelect.onchange = () => switchTheme(themeSelect.value, true)
+    }
+})
+</script>
+
+<!-- Note for Interaction Area: auto-close it if seen -->
+<script>
+if (localStorage.getItem('geedeapro.closeInteractionNote')) {
+    document.getElementById('interaction-note').classList.add('hidden')
+}
+</script>
+
+<!-- global JS -->
+{{ $commonJS := slice
+  (resources.Get "js/tooltip.js")
+  (resources.Get "js/instantpage.min.js")
+}}
+{{ $commonBundle := $commonJS | resources.Concat "js/common-bundle.js" | minify | fingerprint }}
+<script src="{{ $commonBundle.RelPermalink }}" integrity="{{ $commonBundle.Data.Integrity }}" defer></script>
+
+<!-- content page only JS -->
+{{ if not .IsHome }}
+  {{ $articleJS := slice
+    (resources.Get "js/toc.js")
+    (resources.Get "js/back2top.js")
+    (resources.Get "js/iine.js")
+  }}
+  {{ $articleBundle := $articleJS | resources.Concat "js/article-bundle.js" | minify | fingerprint }}
+  <script src="{{ $articleBundle.RelPermalink }}" integrity="{{ $articleBundle.Data.Integrity }}" defer></script>
+{{ end }}
+
+<!-- libra.js -->
+<script type="module">
+document.addEventListener('DOMContentLoaded', async () => {
+  const { default: LightBox } = await import('/js/libra.min.js');
+  const lightbox = new LightBox({
+    offset: { x: -8, y: -48 },
+    selector: "[data-libra]:not(.disable-libra *)",
+  });
+});
+</script>
+
+<!-- GoatCounter 统计已移除:不向作者服务器上报 -->

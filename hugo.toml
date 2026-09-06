@@ -1,20 +1,65 @@
 baseURL = "https://blog.lemonfumo.top/"
-title = "My Garden"
+title = "想象盒子"
+theme = "hugo-theme-venin"
+defaultContentLanguage = "zh"
 locale = "zh-cn"
-theme = "hugo-bearcub"
 enableRobotsTXT = true
-
-# 语法高亮无内联样式（主题推荐，利于安全与可访问性）
-[markup.highlight]
-  lineNos = true
-  lineNumbersInTable = false
-  noClasses = false
+copyright = "© zzq"
 
 [params]
-  description = "我的数字花园"
-  title = "My Garden"
-  dateFormat = "2006-01-02"
-  hideUntranslated = true
+  description = "zzq 的想象盒子。一个普通的纸盒。All you need is imagination."
+  mainSections = ["article"]
+  staticPrefix = ""
+  assetBaseUrl = ""
+  logo = "/logo.png"
+  favicon = "/favicon.png"
+  extraCSSFiles = ["css/kraft.css"]
 
-[params.author]
-  name = "FumonLemon"
+  [params.author]
+    name = "zzq"
+    avatar = "/logo.png"
+
+# 顶栏导航
+[[params.nav]]
+  name = "文章"
+  link = "/article/"
+[[params.nav]]
+  name = "关于"
+  link = "/about/"
+[[params.nav]]
+  name = "友链"
+  link = "/links/"
+
+# 首页快捷入口
+[[params.homenav]]
+  name = "故事"
+  link = "/categories/故事/"
+[[params.homenav]]
+  name = "数学"
+  link = "/categories/数学/"
+[[params.homenav]]
+  name = "技术"
+  link = "/categories/技术/"
+[[params.homenav]]
+  name = "随笔"
+  link = "/categories/随笔/"
+[[params.homenav]]
+  name = "全部文章"
+  link = "/article/"
+
+# 首页底部一排链接
+[[params.internalLinks]]
+  name = "关于"
+  link = "/about/"
+[[params.internalLinks]]
+  name = "友链"
+  link = "/links/"
+[[params.internalLinks]]
+  name = "RSS"
+  link = "/index.xml"
+
+# 页脚图标链接
+[[params.footerExternalLinks]]
+  icon = "/icons/github.svg"
+  name = "GitHub"
+  link = "https://github.com/FumonLemon"

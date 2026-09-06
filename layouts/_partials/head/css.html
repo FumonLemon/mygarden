@@ -1,0 +1,20 @@
+<!-- 覆写主题 head/css.html:
+     1) 去掉 pagefind-ui css 链接(未生成索引, 原样 404)
+     2) 调整顺序: uno/main 先, 自定义 kraft.css 最后加载才能盖住主题 :root 变量 -->
+
+<!-- theme css -->
+{{ with resources.Get "css/uno.css" | minify }}
+<style>{{ .Content | safeCSS }}</style>
+{{ end }}
+
+{{ with resources.Get "css/main.scss" | css.Sass | minify }}
+<style>{{ .Content | safeCSS }}</style>
+{{ end }}
+
+<!-- Extra(最后加载, 覆盖主题配色变量) -->
+{{ range .Site.Params.extraCSSFiles -}}
+<link
+    rel="stylesheet"
+    href="{{ $.Site.Params.staticPrefix }}{{ . | relURL }}"
+/>
+{{- end }}

@@ -1,0 +1,39 @@
+<!-- 覆盖主题页脚:换成想象盒子的版权与许可 -->
+<footer class="pagefind-exclude my-8 mx-auto font-mono px-4 md:px-0
+    text-sm
+    md:w-[var(--page-width)] md:flex md:justify-between">
+    <section>
+        <p class="copyright">&copy; 2026 <a href="/">想象盒子 · zzq</a></p>
+        <p class="license">本站内容按
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank">CC BY-NC-SA 4.0</a>
+            共享,署名 <a href="/about/">zzq</a></p>
+    </section>
+    <section class="flex justify-between items-center
+        md:justify-start md:flex-col md:items-end">
+        <ul class="list-style-none flex items-center gap-2 ps-0 m-0 md:justify-end">
+            {{ range .Site.Params.footerExternalLinks }}
+            <li class="inline-flex items-center">
+                <a href="{{ .link }}" title="{{ .name }}" target="_blank" data-tooltip
+                    class="transition opacity-70 hover:opacity-100 hover:no-underline">
+                    {{ if strings.Contains .icon "/" }}
+                        <img
+                            class="h-4 w-auto inline-block grayscale dark:invert"
+                            src="{{ .icon }}"
+                            alt="{{ .name }} icon."
+                            loading="lazy"
+                            width="1rem"
+                            height="1rem"
+                        />
+                    {{ else }}
+                        <span class="text-size-4 font-serif">{{ .icon }}</span>
+                    {{ end }}
+                </a>
+            </li>
+            {{ end }}
+        </ul>
+        <p class="font-mono">纸盒由
+            <a href="https://gohugo.io/" target="_blank">Hugo</a> 与
+            <a href="https://src.eltr.ac/eltrac/hugo-theme-venin" target="_blank">venin</a>
+            折成</p>
+    </section>
+</footer>
