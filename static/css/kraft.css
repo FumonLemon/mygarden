@@ -26,3 +26,15 @@
 .dark img.title-image {
   filter: none;
 }
+
+/* ---- 背景织纹:graph-paper 方格纸(替换主题自带的骷髅纹样) ----
+   8x8 迷你 SVG 平铺:细线格,颜色同纸色系、低透明度,不抢正文 */
+body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M0 0h8v1H0zM0 0v8h1V0z' fill='%238A7250' fill-opacity='0.15'/%3E%3C/svg%3E");
+  background-size: 16px;
+}
+
+.dark body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M0 0h8v1H0zM0 0v8h1V0z' fill='%23E8D8BC' fill-opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 16px;
+}
