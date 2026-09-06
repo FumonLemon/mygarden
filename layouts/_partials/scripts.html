@@ -47,3 +47,35 @@ document.addEventListener('DOMContentLoaded', async () => {
 </script>
 
 <!-- GoatCounter 统计已移除:不向作者服务器上报 -->
+
+<!-- 顶栏纸盒 logo:主题切暗 = 合盖图,切亮 = 开盖图(淡切,防硬闪) -->
+<script>
+(() => {
+  const OPEN = '/logo.png';
+  const CLOSED = '/logo-closed.png';
+  // 预载两张图,切换瞬间不空白
+  [OPEN, CLOSED].forEach(s => { const i = new Image(); i.src = s; });
+
+  function currentDark() {
+    return document.documentElement.classList.contains('dark');
+  }
+  function swapHeaderLogo(dark) {
+    const img = document.querySelector('header .title-image');
+    if (!img) return;
+    const want = dark ? CLOSED : OPEN;
+    const cur = new URL(img.src, location.href).pathname;
+    if (cur === want) return;
+    img.style.transition = 'opacity 0.14s ease';
+    img.style.opacity = '0';
+    setTimeout(() => {
+      img.src = want;
+      img.style.opacity = '';
+    }, 140);
+  }
+
+  // 主题类变化(下拉/auto/系统切换)都触发
+  new MutationObserver(() => swapHeaderLogo(currentDark()))
+    .observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  swapHeaderLogo(currentDark());
+})();
+</script>

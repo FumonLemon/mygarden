@@ -32,6 +32,21 @@ html, body {
   transition: background-color 0.45s ease, color 0.45s ease;
 }
 
+/* 顶栏 logo:高锁定,开/合两图(1.47 vs 1.12 比例)切换不跳版 */
+header .title-image-container {
+  display: inline-flex;
+  align-items: center;
+}
+header img.title-image {
+  width: auto;
+  height: 2.25rem;
+}
+@media screen and (min-width: 768px) {
+  header img.title-image {
+    height: 3rem;
+  }
+}
+
 /* ---- 背景织纹:graph-paper 方格纸(替换主题自带的骷髅纹样) ----
    8x8 迷你 SVG 平铺:细线格,颜色同纸色系、低透明度,不抢正文 */
 body {
