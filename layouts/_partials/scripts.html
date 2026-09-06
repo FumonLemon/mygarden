@@ -48,13 +48,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 <!-- GoatCounter 统计已移除:不向作者服务器上报 -->
 
-<!-- 顶栏纸盒 logo:主题切暗 = 合盖图,切亮 = 开盖图(淡切,防硬闪) -->
+<!-- 顶栏纸盒 logo + 网页图标:主题切暗 = 合盖图,切亮 = 开盖图(淡切,防硬闪) -->
 <script>
 (() => {
   const OPEN = '/logo.png';
   const CLOSED = '/logo-closed.png';
-  // 预载两张图,切换瞬间不空白
-  [OPEN, CLOSED].forEach(s => { const i = new Image(); i.src = s; });
+  const FAV_OPEN = '/favicon.png';
+  const FAV_CLOSED = '/favicon-closed.png';
+  // 预载全部候选图,切换瞬间不空白
+  [OPEN, CLOSED, FAV_OPEN, FAV_CLOSED].forEach(s => { const i = new Image(); i.src = s; });
 
   function currentDark() {
     return document.documentElement.classList.contains('dark');
@@ -72,10 +74,20 @@ document.addEventListener('DOMContentLoaded', async () => {
       img.style.opacity = '';
     }, 140);
   }
+  function swapFavicon(dark) {
+    const want = dark ? FAV_CLOSED : FAV_OPEN;
+    document.querySelectorAll('link[rel~="icon"]').forEach(l => {
+      if (new URL(l.href, location.href).pathname !== want) l.href = want;
+    });
+  }
 
   // 主题类变化(下拉/auto/系统切换)都触发
-  new MutationObserver(() => swapHeaderLogo(currentDark()))
-    .observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  new MutationObserver(() => {
+    const dark = currentDark();
+    swapHeaderLogo(dark);
+    swapFavicon(dark);
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   swapHeaderLogo(currentDark());
+  swapFavicon(currentDark());
 })();
 </script>
