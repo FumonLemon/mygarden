@@ -32,18 +32,18 @@ html, body {
   transition: background-color 0.45s ease, color 0.45s ease;
 }
 
-/* 顶栏 logo:高锁定,开/合两图(1.47 vs 1.12 比例)切换不跳版 */
+/* 顶栏 logo:高锁定,开/合两图同高切换不跳版;裁边后盒子显大 */
 header .title-image-container {
   display: inline-flex;
   align-items: center;
 }
 header img.title-image {
   width: auto;
-  height: 2.25rem;
+  height: 3rem;
 }
 @media screen and (min-width: 768px) {
   header img.title-image {
-    height: 3rem;
+    height: 4rem;
   }
 }
 
