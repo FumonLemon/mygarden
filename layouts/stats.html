@@ -1,0 +1,19 @@
+{{ define "main" }}
+    <article>
+        <section>
+            {{ partial "stats/stats-table" . }}
+        </section>
+
+        <section>
+            <h2>每月文章字数</h2>
+            {{ partial "stats/word-count-chart" . }}
+        </section>
+
+        <section>
+            <h2>文章发布时间段分布</h2>
+            <div class="outbox">
+                {{ partial "stats/publish-time-chart" . }}
+            </div>
+        </section>
+    </article>
+{{ end }}

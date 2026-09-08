@@ -1,13 +1,17 @@
 baseURL = "https://blog.lemonfumo.top/"
-title = "想象盒子"
+title = "纸盒"
 theme = "hugo-theme-venin"
 defaultContentLanguage = "zh"
 locale = "zh-cn"
 enableRobotsTXT = true
-copyright = "© zzq"
+timeout = "10s"
+copyright = "© Fumo Lemon"
+
+[markup.goldmark.renderer]
+  unsafe = true  # 允许正文原生 HTML(details/mark/kbd)
 
 [params]
-  description = "zzq 的想象盒子。一个普通的纸盒。All you need is imagination."
+  description = "Fumo Lemon 的纸盒。一个普通的纸盒。All you need is imagination."
   mainSections = ["article"]
   staticPrefix = ""
   assetBaseUrl = ""
@@ -16,50 +20,50 @@ copyright = "© zzq"
   extraCSSFiles = ["css/kraft.css"]
 
   [params.author]
-    name = "zzq"
+    name = "Fumo Lemon"
     avatar = "/logo.png"
 
 # 顶栏导航
 [[params.nav]]
-  name = "文章"
-  link = "/article/"
+  name = "标签"
+  link = "/tags/"
 [[params.nav]]
-  name = "关于"
-  link = "/about/"
+  name = "泳道"
+  link = "/categories/"
 [[params.nav]]
-  name = "友链"
+  name = "邻链"
   link = "/links/"
+[[params.nav]]
+  name = "自白"
+  link = "/about/"
 
 # 首页快捷入口
 [[params.homenav]]
-  name = "故事"
-  link = "/categories/故事/"
+  name = "所有"
+  link = "/"
 [[params.homenav]]
-  name = "数学"
-  link = "/categories/数学/"
-[[params.homenav]]
-  name = "技术"
-  link = "/categories/技术/"
-[[params.homenav]]
-  name = "随笔"
-  link = "/categories/随笔/"
-[[params.homenav]]
-  name = "全部文章"
+  name = "文章"
   link = "/article/"
+[[params.homenav]]
+  name = "周报"
+  link = "/weekly/"
+[[params.homenav]]
+  name = "书籍"
+  link = "/library/"
+[[params.homenav]]
+  name = "杂物"
+  link = "/clutter/"
 
 # 首页底部一排链接
 [[params.internalLinks]]
-  name = "关于"
-  link = "/about/"
+  name = "用词"
+  link = "/glossary/"
 [[params.internalLinks]]
-  name = "友链"
-  link = "/links/"
+  name = "考锹"
+  link = "/colophon/"
+[[params.internalLinks]]
+  name = "统计"
+  link = "/stat/"
 [[params.internalLinks]]
   name = "RSS"
   link = "/index.xml"
-
-# 页脚图标链接
-[[params.footerExternalLinks]]
-  icon = "/icons/github.svg"
-  name = "GitHub"
-  link = "https://github.com/FumonLemon"
