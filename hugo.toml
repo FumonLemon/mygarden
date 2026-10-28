@@ -1,0 +1,41 @@
+baseURL = "https://blog.lemonfumo.top/"
+title   = "纸盒"
+theme   = "hugo-bearcub"
+
+defaultContentLanguage = "zh"
+locale     = "zh-cn"
+timeZone   = "Asia/Shanghai"
+enableRobotsTXT = true
+
+# footer 渲染为：<copyright> | <madeWith>
+copyright = "© 2026 Fumo Lemon"
+
+[params]
+  description        = "Fumo Lemon 的纸盒。一个普通的纸盒。All you need is imagination."
+  favicon            = "favicon.png"
+  dateFormat         = "2006-01-02"
+  madeWith           = "CC BY-NC-SA 4.0"
+  generateSocialCard = false
+
+# 主题的 rss.xml 在未设 params.author 时会去读已移除的 site.Author 而报错（Hugo 0.169），
+# 设一个 name 就走正常分支。不设 email → 不出现"邮件回复"按钮。
+[params.author]
+  name = "Fumo Lemon"
+
+[[menu.main]]
+  name   = "主页"
+  url    = "/"
+  weight = 1
+
+[[menu.main]]
+  name   = "归档"
+  url    = "/archive/"
+  weight = 2
+
+[[menu.main]]
+  name   = "关于"
+  url    = "/about/"
+  weight = 3
+
+[services.rss]
+  limit = -1
