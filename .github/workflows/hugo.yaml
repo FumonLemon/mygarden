@@ -30,7 +30,6 @@ jobs:
           submodules: recursive
           fetch-depth: 0
       - uses: actions/configure-pages@v5
-        id: pages
       - name: Install Hugo
         run: |
           curl -sfL -o "${{ runner.temp }}/hugo.tar.gz" \
@@ -41,7 +40,7 @@ jobs:
       - name: Build
         env:
           TZ: Asia/Shanghai
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: hugo --gc --minify
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
