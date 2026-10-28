@@ -1,15 +1,50 @@
-/* 浅色配色：取值与 hugo-bearblog 的 :root 变量一致 */
-body {
-  background-color: #fff;
-  color: #444;
+/* 明暗两套配色，色值取自 hugo-bearblog 的 :root / prefers-color-scheme 两段 */
+:root {
+  --bg: #fff;
+  --fg: #444;
+  --head: #222;
+  --link: #3273dc;
+  --visited: #8b6fcb;
+  --code-bg: #f2f2f2;
+  --pre-bg: #f6f6f6;
+  --border: #ddd;
+  --quote: #999;
 }
-h1, h2, h3, h4, h5, h6, strong, b { color: #222; }
-a { color: #3273dc; cursor: pointer; }
+html[data-theme="dark"] {
+  --bg: #01242e;
+  --fg: #ddd;
+  --head: #eee;
+  --link: #8cc2dd;
+  --visited: #8b6fcb;
+  --code-bg: #0b3b47;
+  --pre-bg: #0b3b47;
+  --border: #2a4a55;
+  --quote: #666;
+}
+
+body { background-color: var(--bg); color: var(--fg); }
+h1, h2, h3, h4, h5, h6, strong, b { color: var(--head); }
+a { color: var(--link); cursor: pointer; }
 a:hover { text-decoration: underline; }
-ul.blog-posts li a:visited { color: #8b6fcb; }
-code { color: #222; background-color: #f2f2f2; }
-pre code { background-color: #f6f6f6; }
-blockquote { border-left-color: #999; color: #222; }
-table, th, td { border-color: #ddd; }
-.skip-link { background-color: #fff; }
-figcaption > p { color: #666; }
+ul.blog-posts li a:visited { color: var(--visited); }
+code { color: var(--fg); background-color: var(--code-bg); }
+pre code { background-color: var(--pre-bg); }
+blockquote { border-left-color: var(--quote); color: var(--head); }
+table, th, td { border-color: var(--border); }
+.skip-link { background-color: var(--bg); }
+figcaption > p { color: var(--fg); }
+
+#theme-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}

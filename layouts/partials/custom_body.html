@@ -1,0 +1,9 @@
+<button id="theme-toggle" type="button" aria-label="切换明暗">◐</button>
+<script>
+  document.getElementById('theme-toggle').onclick = function () {
+    var d = document.documentElement;
+    var t = d.dataset.theme === 'dark' ? 'light' : 'dark';
+    d.dataset.theme = t;
+    localStorage.setItem('theme', t);
+  };
+</script>
