@@ -1,0 +1,15 @@
+/* 浅色配色：取值与 hugo-bearblog 的 :root 变量一致 */
+body {
+  background-color: #fff;
+  color: #444;
+}
+h1, h2, h3, h4, h5, h6, strong, b { color: #222; }
+a { color: #3273dc; cursor: pointer; }
+a:hover { text-decoration: underline; }
+ul.blog-posts li a:visited { color: #8b6fcb; }
+code { color: #222; background-color: #f2f2f2; }
+pre code { background-color: #f6f6f6; }
+blockquote { border-left-color: #999; color: #222; }
+table, th, td { border-color: #ddd; }
+.skip-link { background-color: #fff; }
+figcaption > p { color: #666; }
